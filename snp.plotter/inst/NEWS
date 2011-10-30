@@ -1,0 +1,11 @@
+snp.plotter 0.3.1 - 2010-11-22
+---------------------------
+
+- Changed dependency back from GeneticsBase because GeneticsBase is not in the Bioconductor 2.7 release. The genetics package produces a obselete package warning; only the LD and genotype functions of the genetics package are used. 
+
+snp.plotter 0.4 - 2011-05-11
+---------------------------
+
+- Support for scaling SNP names and symbols added making it easier to draw diagrams with a greater number of SNPs.
+
+

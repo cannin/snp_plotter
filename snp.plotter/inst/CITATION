@@ -1,0 +1,19 @@
+citHeader("To cite snp.plotter in publications use:")
+
+citEntry(entry="Article",
+         title = "snp.plotter: an R-based SNP/haplotype association and linkage disequilibrium plotting package.",
+         author = personList(as.person("A. Luna"),
+		         as.person("K.K. Nicodemus")),
+         journal= "Bioinformatics",
+         volume	= 23,
+		 number = 6,
+         year	= 2007,
+         pages	="774-776",
+		 month  ="Mar",
+         url	="http://cbdb.nimh.nih.gov/~kristin/snp.plotter.html",
+
+         textVersion =
+       paste("Luna A, Nicodemus KK (2007).",
+        "snp.plotter: an R-based SNP/haplotype association and linkage disequilibrium plotting package.",
+        "Bioinformatics, 23, 6:774-6.")
+)
