@@ -26,3 +26,4 @@ h2. What are the main features of snp.plotter?
 ** Colors/color schemes
 ** LD metric
 ** P-value threshold
+ 
