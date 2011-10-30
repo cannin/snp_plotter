@@ -1,5 +1,3 @@
-h1. Introduction
-
 h2. What is snp.plotter? 
 
 snp.plotter is an R package that creates publishable-quality plots of p-values using single SNP and/or haplotype data. Main features of the package include options to display a linkage disequilibrium (LD) plot and the ability to plot multiple sets of results simultaneously. Plots can be created using global and/or individual haplotype p-values along with single SNP p-values. Images are created as either "Portable Document Format (PDF)":http://en.wikipedia.org/wiki/Pdf or "Encapsulated (EPS) files":http://en.wikipedia.org/wiki/Encapsulated_PostScript.
