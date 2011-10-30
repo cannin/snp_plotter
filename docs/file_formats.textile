@@ -61,7 +61,7 @@ IMAGE.SIZE=3.5
 +	0.003	0.001						2	2	2
 </pre></code>
 	
-* *GENOTYPE.FILE:* GENOTYPE.FILE is a modified Linkage PED file. Each row should have the following information: family ID, individual ID, father ID, mother ID, sex, and affection status followed by marker loci coded as binary factors, as shown in the example below. This file should not have column headers.
+* *GENOTYPE.FILE:* GENOTYPE.FILE is a modified Linkage PED file. Each row should have the following information: family ID, individual ID, father ID, mother ID, sex, and affection status followed by marker loci coded as binary factors, as shown in the example below. This file should not have column headers. 
  
 <pre><code>1	1	0	0	1	1	1	1	1	1
 2	1	0	0	2	1	1	1	1	1
