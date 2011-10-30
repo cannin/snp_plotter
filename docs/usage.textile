@@ -22,11 +22,11 @@ Once snp.plotter and its dependencies are installed, snp.plotter can be loaded i
 
 @library(snp.plotter)@
 
-snp.plotter is then run using the following command. Explanation of snp.plotter configuration files and input files is provided in the file formats section. The configuration file specifies all the characteristics for the plot to be produced and the names of the data files to be used as input. Example configuration and input files are also provided.
+snp.plotter is then run using the following command. Explanation of snp.plotter configuration files and input files is provided in the [[file formats|File-Formats]] section. The configuration file specifies all the characteristics for the plot to be produced and the names of the data files to be used as input. Example "configuration and input files":https://github.com/downloads/cannin/snp_plotter/snp.plotter.20SNP.dataset.zip are also provided.
 
 @snp.plotter(config.file="config.txt")@
 
-Information about the configuration options is provided in the documentation, which can viewed from within R using this command.
+Information about the configuration options is provided in the "documentation on CRAN":http://cran.r-project.org/web/packages/snp.plotter/snp.plotter.pdf, which can viewed from within R using this command.
 
 @?snp.plotter@
 
@@ -46,6 +46,6 @@ The listing below shows the most common scenarios for inclusion of a figure into
 \end{document}
 </code></pre>
 
-* *Conversion of PDF/EPS file into other formats using Ghostscript:* Ghostscript can be used to convert PDF and EPS files into a variety of raster formats such as JPG, BMP, PNG, etc. The following commandline converts an EPS image into a JPG image; the resulting image has a resolution of 300 DPI and pixel dimension of 1050x1050 pixels. Further information on the usage of Ghostscript can be found here. *FILENAME* must be changed to the appropriate filename.
+* *Conversion of PDF/EPS file into other formats using Ghostscript:* Ghostscript can be used to convert PDF and EPS files into a variety of raster formats such as JPG, BMP, PNG, etc. The following commandline converts an EPS image into a JPG image; the resulting image has a resolution of 300 DPI and pixel dimension of 1050x1050 pixels. Further information on the usage of Ghostscript can be found "here":http://www.cs.wisc.edu/~ghost/doc/AFPL/8.00/Use.htm. *FILENAME* must be changed to the appropriate filename.
 
 @gs -q -dNOPAUSE -dSAFER -dBATCH -r300 -g1050x1050 -sOutputFile=FILENAME.jpg -sDEVICE=jpeg FILENAME.eps@

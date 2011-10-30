@@ -2,9 +2,9 @@ h1. File Formats
 
 h2. What file types are used by snp.plotter?
 
-snp.plotter uses tab-delimited text files as input files. These files can be created in a basic text editor such as Notepad in Windows or Excel saved as tab-delimited files using the "Save As" option. A dataset is composed a configuration file, a SNP and haplotype file for each result set, one genotype file, and an optional palette file. More information about these files can be found in the documentation.
+snp.plotter uses tab-delimited text files as input files. These files can be created in a basic text editor such as Notepad in Windows or Excel saved as tab-delimited files using the "Save As" option. A dataset is composed a configuration file, a SNP and haplotype file for each result set, one genotype file, and an optional palette file. More information about these files can be found in the "documentation on CRAN":http://cran.r-project.org/web/packages/snp.plotter/snp.plotter.pdf.
 
-* *Configuration file:* The configuration file is the preferred method of running snp.plotter; it allows users to save preferred settings and avoids the inconvenience of writing extended R commands, repeatedly. There cannot be spaces after commas. A complete description of all possible plot characteristics can be found in the documentation. Result sets without haplotype results should be placed after those with results; no HAP.FILE entry should be specified in this case.
+* *Configuration file:* The configuration file is the preferred method of running snp.plotter; it allows users to save preferred settings and avoids the inconvenience of writing extended R commands, repeatedly. There cannot be spaces after commas. A complete description of all possible plot characteristics can be found in the "documentation on CRAN":http://cran.r-project.org/web/packages/snp.plotter/snp.plotter.pdf. Result sets without haplotype results should be placed after those with results; no HAP.FILE entry should be specified in this case.
  
 <pre><code>SNP.FILE=snp8_ss.txt,snp8_ss2.txt
 HAP.FILE=snp8_haplo.txt,snp8_haplo2.txt
@@ -70,7 +70,7 @@ IMAGE.SIZE=3.5
 5	1	0	0	1	1	0	0	1	1
 </pre></code>
 	
-* *PALETTE.FILE (OPTIONAL):* PALETTE.FILE can be used to specify a color palette for the LD heatmap. To use the the PALETTE.FILE option, LD.COLOR.SCHEME must be set to "custom" and a file name must be provided to the PALETTE.FILE option. Custom color schemes cannot be used in conjunction with predefined color schemes such as "heat" or "gray". PALETTE.FILE colors are hexidecimal HTML color codes; one color per line. The first and last colors correspond to the lowest and highest value of the chosen LD metric, respectively.
+* *PALETTE.FILE (OPTIONAL):* PALETTE.FILE can be used to specify a color palette for the LD heatmap. To use the the PALETTE.FILE option, LD.COLOR.SCHEME must be set to "custom" and a file name must be provided to the PALETTE.FILE option. Custom color schemes cannot be used in conjunction with predefined color schemes such as "heat" or "gray". PALETTE.FILE colors are "hexidecimal HTML color codes":http://en.wikipedia.org/wiki/X11_color_names; one color per line. The first and last colors correspond to the lowest and highest value of the chosen LD metric, respectively.
  
 <pre><code>FFFFFF
 CCCCFF
