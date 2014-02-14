@@ -13,15 +13,149 @@
 # Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 ##########################################################################
 
-##########################################################################
-# File: snp.plotter.R
-# Author: Augustin Luna 
-# Email: augustin@mail.nih.gov
-# Purpose: snp.plotter allows the display of p-values from association or linkage 
-#          analyses with a linkage disequilibrium heatmap.
-###########################################################################
-
-#snp.plotter allows the display of p-values from association or linkage analyses with a linkage disequilibrium heatmap.
+#' SNP/haplotype association p-value and linkage disequilibrium plotter Creates
+#' plots of p-values using single SNP and/or haplotype data. Main features of
+#' the package include options to display a linkage disequilibrium (LD) plot and
+#' the ability to plot multiple set of results simultaneously. Plots can be
+#' created using global and/or individual haplotype p-values along with single
+#' SNP p-values. Images are created as either PDF/EPS files.
+#' @param config.file Name of a configuration file for snp.plotter parameters in
+#'   the form ATTRIBUTE=value. This option can be used in place of specifying 
+#'   options at the R command line.
+#' @param SNP.FILE Tab-delimited input file containing p-values for single SNPs 
+#'   (see note below). The contents of each SNP.FILE includes four necessary
+#'   columns ASSOC, SNP.NAME, LOC, and SS.PVAL corresponding to positive or
+#'   negative association (indicating susceptibility or protective alleles), a
+#'   SNP label, the location, and a p-value for each SNP. SNP labels cannot
+#'   start with numbers. Example: "s1.txt,s2.txt,s3.txt" MANDATORY
+#' @param HAP.FILE Tab-delimited input file containing p-values for haplotypes 
+#'   (see note below). The contents of each HAP.FILE includes three necessary
+#'   columns ASSOC, G.PVAL, and I.PVAL followed by a set of columnns of SNPs
+#'   with corresponding haplotypes. Haplotypes are presented in a step-wise
+#'   fashion with the major allele given as 1 and the minor allele as 2;
+#'   haplotype variants for a set of SNPs should be grouped. SNP labels in
+#'   HAP.FILE must be the same as in SNP.FILE, and only SNPs with corresponding
+#'   haplotypes need to be included. Example: "h1.txt,h2.txt,h3.txt" OPTIONAL
+#' @param GENOTYPE.FILE Tab-delimited input file containing genotypes as a PED
+#'   file with 6 columns preceding the genotype data: family ID, individual ID,
+#'   father ID, mother ID, sex, and affection status; these coloums are not used
+#'   in the creation of the LD plot. This file is used for calculating D' or
+#'   r-squared values for the LD heatmap plot. Only one LD plot can be shown
+#'   (see note below). OPTIONAL
+#' @param EVEN.SPACED Logical. Should the p-values be displayed at even spacing
+#'   or at genetic map distances?
+#' @param USE.GBL.PVAL Logical. Use global haplotype p-values (as opposed to
+#'   individual p-values)? Unfilled symbols connected by solid lines are used to
+#'   indicate global haplotype p-values, default symbol: circle. Unfilled and
+#'   filled symbols are used to indicate alleles 1 and 2, respectively connected
+#'   by solid lines and dashed lines for positive and negative association
+#'   (indicating susceptibility or protective haplotypes) when using individual
+#'   haplotype p-values.
+#' @param DISP.HAP Logical. Display haplotype p-values?
+#' @param DISP.SNP Logical. Display single SNP p-values?
+#' @param DISP.LDMAP Logical. Display the LD heatmap?
+#' @param DISP.PHYS.DIST Logical. Display the range of the X-scale?
+#' @param DISP.LEGEND Logical. Display a legend with sample labels and
+#'   corresponding symbols?
+#' @param DISP.COLOR.BAR Logical. Display bar showing colors and corresponding
+#'   values of LD plot?
+#' @param DISP.TYPE Options: "symbol"
+#' @param DISP.MULT.LAB.X Logical. Display evenly spaced X-axis tick-labels; up
+#'   to 5 labels are shown.
+#' @param DISP.MARKER.LINES Logical. Display lines at p-value thresholds of
+#'   0.05, 0.01, 0.001, etc.
+#' @param DISP.SNP.NAMES Logical. Display the names of SNPs on a plot.
+#' @param DISP.CONNECTING.LINES Logical. Display connecting lines from p-value
+#'   plot to LD map.
+#' @param USE.COLORS Logical. Restrict LD heatmap colors and default symbol
+#'   colors to gray-scale
+#' @param COLOR.LIST List of colors (one for each sample) known to GraphApp (see
+#'   note below) for displaying p-value symbols. Example:
+#'   "red,blue,green,black,orange"
+#' @param SYMBOLS Options: circle, square, diamond, triangle; Symbols can either
+#'   be filled or not filled by appending "-fill" e.s., square-fill. NA may be
+#'   specified. In this case, the SNP.FILE ASSOC column is read and an
+#'   up-triangle and down-triangle are used to indicate positive and negative
+#'   association (indicating susceptibility or protective alleles),
+#'   respectively. Example: "circle,NA,diamond-fill,triangle"
+#' @param PALETTE.FILE Colors are hexidecimal HTML color codes; one color per
+#'   line. OPTIONAL
+#' @param SAMPLE.LABELS Labels for each sample. Example: "d-cc,d2-cc,d1-fam"
+#' @param LAB.Y Options: ln (natural log) or log (log10)
+#' @param IMAGE.TYPE Options: "pdf" or "eps"
+#' @param IMAGE.TITLE Title of the image in quotes. Note: Title text may not
+#'   wrap.
+#' @param IMAGE.SIZE Options: 3.5 or 7. Sizes are in inches and correspond to 1
+#'   or 2 columns per printed page.
+#' @param IMAGE.NAME Name of the output file. The correct extension will be
+#'   appended depending on the value of IMAGE.TYPE
+#' @param PVAL.THRESHOLD The minimum value of the the Y-scale will be set to
+#'   this value. Default: 1 (to ignore option).
+#' @param LD.TYPE LD metric. Options: "dprime" or "rsquare"
+#' @param LD.COLOR.SCHEME LD heatmap color scheme. Options: heat
+#'   (red-yellow-white), cm (cyan-magenta), topo (topographical map colors),
+#'   gray (gray-scale), or custom; custom requires palette file (PALETTE.FILE)
+#'   to be defined
+#' @param CONNECTING.LINES.FACTOR Adjusts the length of the connecting lines.
+#'   Range: 0-2
+#' @param CONNECTING.LINES.ADJ Can be used to adjust the position of connecting
+#'   lines in relation to SNP names. Negative values shift the connecting lines
+#'   to the left and positive values shift the lines to the right. Range: 0-1
+#' @param CONNECTING.LINES.VERT.ADJ Can be used to vertically adjust the
+#'   position of connecting lines in relation to SNP names. More negative value
+#'   shift the connecting lines down. Range: -0.5-0
+#' @param CONNECTING.LINES.FLEX Adjusts the spread of the connecting lines.
+#'   Range: 0-2
+#' @param SYMBOL.FACTOR Scaling value for symbols. Larger values are generate
+#'   larger symbols. Range: 0-1
+#' @param FONT.FACTOR Scaling value for SNP names. Larger values are generate
+#'   larger SNP names. Range: 0-1
+#' @return A list containing two items: config.var and gbl.var, which includes
+#'   the values of all significant variables used by snp.plotter
+#' @details	snp.plotter produces publishable-quality plots of p-values using
+#'   single SNP and/or haplotype data. Main features of the package include
+#'   options to display a linkage disequilibrium (LD) plot below the p-value
+#'   plot using either the r-squared or D' LD metric with a user-specified LD
+#'   heatmap color scheme, setting the X-axis to equal spacing or to use the
+#'   physical SNP map, and specification of plot labels, colors and symbols for
+#'   desplaying p-values. A major strength of the package is that it can plot
+#'   multiple set of results simultaneously. Plots can be created using global
+#'   and/or individual haplotype p-values along with single SNP p-values. The
+#'   package provides a simple way to convey both association and LD information
+#'   in a single appealing graphic and requires virtually no knowledge of the R
+#'   programming language. Code to create the LD map was modified from the 
+#'   LDHeatmap package by Ji-Hyung Shin, et al. (2006, version 0.2)
+#' @note Configuration Files Due to the large number of parameters implemented
+#'   for flexibility, it is suggested that snp.plotter be run using the
+#'   config.file argument.
+#' @note Example Datasets Examples of SNP.FILE, HAP.FILE, GENOTYPE.FILE, and
+#'   configuration files are provided at
+#'   \url{http://cbdb.nimh.nih.gov/~kristin/snp.plotter.html} with further
+#'   explanation on the file formats.
+#' @note Lists Comma delimited lists (SNP.FILE, HAP.FILE, COLOR.LIST, SYMBOLS,
+#'   etc) should not have spaces between entries. If using the config.file
+#'   argument, these lists should not have quotations in the configuration file.
+#'   Example: "red,blue,green,black,orange"
+#' @note Colors COLOR.LIST colors are limited to those known to GraphApp. A
+#'   short list can be found at
+#'   \url{http://en.wikipedia.org/wiki/X11.color.names}; the complete list is
+#'   located in the R source code file
+#' @note Palettes PALETTE.FILE colors are hexidecimal HTML color codes
+#'   \url{http://en.wikipedia.org/wiki/X11.color.names}. The first and last
+#'   colors correspond to the lowest and highest value of the chosen LD metric,
+#'   respectively. One color per line.
+#' @note PDFs The error "unable to start device pdf" may occur when attempting
+#'   to overwrite an open PDF document.
+#' @note P-values A p-value of 1 or NA can be used in SNP.FILE to prevent
+#'   displaying information about a single SNP
+#' @note Number of Datasets snp.plotter handles 10 set of results, but provides
+#'   default values for only 5 set of results
+#' @note File Input All input files should be placed in the same directory
+#' @author Augustin Luna \email{augustin.luna at mail.nih.gov}, Kristin K.
+#'   Nicodemus \email{kristin.nicodemus at well.ox.ac.uk}. Website:
+#'   \url{https://github.com/cannin/snp_plotter}
+#' @keywords aplot, hplot
+#' @export
 snp.plotter <- function(EVEN.SPACED = FALSE, 
 		PVAL.THRESHOLD = 1, 
 		USE.GBL.PVAL = TRUE, 
@@ -283,15 +417,15 @@ snp.plotter <- function(EVEN.SPACED = FALSE,
 			for(p in 1:cur.snp.num) {
 	
 				if(!is.na(gbl.var$snp.data$SNP.NAME[p]) | !is.na(gbl.var$snp.data$LOC[p])) {
-					assign(gbl.var$snp.data$SNP.NAME[p], list(position=gbl.var$snp.data$LOC[p]), env=gbl.var$snp.hash.names.pos)
-	    	        assign(as.character(gbl.var$snp.data$LOC[p]), list(snp.name=gbl.var$snp.data$SNP.NAME[p]), env=gbl.var$snp.hash.pos.names)
+					assign(gbl.var$snp.data$SNP.NAME[p], list(position=gbl.var$snp.data$LOC[p]), envir=gbl.var$snp.hash.names.pos)
+	    	        assign(as.character(gbl.var$snp.data$LOC[p]), list(snp.name=gbl.var$snp.data$SNP.NAME[p]), envir=gbl.var$snp.hash.pos.names)
 				}
 			}
 	
 			#create a variable with only the SNP names
-	        snp.hash.names <- ls(env=gbl.var$snp.hash.names.pos)
+	        snp.hash.names <- ls(envir=gbl.var$snp.hash.names.pos)
 			#create a variable with only the SNP positions
-			snp.hash.pos <- ls(env=gbl.var$snp.hash.pos.names)
+			snp.hash.pos <- ls(envir=gbl.var$snp.hash.pos.names)
 	
 			#DEBUG STATEMENT 
 			#cat("length(snp.hash.names) ", length(snp.hash.names), "\n")
@@ -303,7 +437,7 @@ snp.plotter <- function(EVEN.SPACED = FALSE,
 			#sort the SNP names
 	        for(n in 1:length(snp.hash.pos)) {
 				#cat("POS: ", snp.hash.pos[i], "NAME: ", get(snp.hash.pos[i], env=snp.hash.pos.name)$name, "\n")
-				gbl.var$sorted.snp.names[n] <- get(snp.hash.pos[n], env=gbl.var$snp.hash.pos.names)$snp.name
+				gbl.var$sorted.snp.names[n] <- get(snp.hash.pos[n], envir=gbl.var$snp.hash.pos.names)$snp.name
 			}
 	
 			#get the number of unique SNP in all current sample sets 

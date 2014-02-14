@@ -1,0 +1,85 @@
+# Introduction
+
+## What is snp.plotter? 
+
+snp.plotter is an R package that creates publishable-quality plots of p-values using single SNP and/or haplotype data. Main features of the package include options to display a linkage disequilibrium (LD) plot and the ability to plot multiple sets of results simultaneously. Plots can be created using global and/or individual haplotype p-values along with single SNP p-values. Images are created as either "Portable Document Format (PDF)":http://en.wikipedia.org/wiki/Pdf or "Encapsulated (EPS) files":http://en.wikipedia.org/wiki/Encapsulated_PostScript.
+
+## What do snp.plotter images look like?
+
+Here is a sample image as both a PDF and a EPS image. PDF images can be viewed using the free "Adobe Reader":http://www.adobe.com/products/acrobat.html software. EPS (or PDF) images can be viewed using front-end software for "Ghostscript":http://www.cs.wisc.edu/~ghost/, a Postscript and PDF interpreter: "Ghostview and GV":http://www.cs.wisc.edu/~ghost/ for Unix/X11 systems and "GSView":http://www.cs.wisc.edu/~ghost/ for Windows.  
+
+[[https://github.com/cannin/snp_plotter/raw/master/snp.plotter/inst/doc/null_rsq_phys_color.png]]
+
+## Who are the intended users of snp.plotter?
+
+Researchers conducting gene association studies who need to create images showing results in the form of p-values of their work along with a "linkage disequilibrium":http://en.wikipedia.org/wiki/Linkage_disequilibrium plot to show the underlying structure of the study population. Because snp.plotter is a visualization tool, the type of study design used either family-based, case-control, or a combination is irrelevant.
+
+## What are the main features of snp.plotter?
+
+* Publishable-quality graphics in resolution-independent formats
+* Free and open source
+* Visualization of global or individual haplotype p-values
+* Visualization of results either physically spaced or evenly spaced
+* Ability to plot multiple sets of results
+* Optional web interface
+* Customizable parameters
+** Labels
+** Symbols
+** Colors/color schemes
+** LD metric
+** P-value threshold
+
+# Usage
+
+## How do I install snp.plotter?
+
+snp.plotter requires the installation of R, the statistical computing software, freely available "here":http://www.r-project.org/ for Linux, Windows, or MacOS. snp.plotter uses three contributed packages: grid, lattice, and genetics available from the R Project website. snp.plotter can be downloaded "CRAN":http://cran.r-project.org/web/packages/snp.plotter/index.html. Packages in the current working directory of R can be installed using the *install.packages* command.
+
+In *Windows,* make sure that you have downloaded the .zip version of a package, which is a pre-compiled binary. Change the word *PACKAGE_FILENAME* to the name of the package being installed.
+
+@install.packages("PACKAGE_FILENAME.zip", repos=NULL)@
+
+In *Unix/Linux,* make sure that you have downloaded a source package, the .tar.gz version, of a package. Change the word *PACKAGE_FILENAME* to the name of the package being installed.
+
+@install.packages("PACKAGE_FILENAME.tar.gz", repos=NULL)@
+
+The following error indicates that additional packages need to be installed: *PACKAGE_FILENAME* can be grid or genetics. These packages can be downloaded from "CRAN":http://cran.r-project.org/src/contrib/PACKAGES.html. and installed using the same process described above.
+
+@Error: package 'PACKAGE_FILENAME' could not be loaded@
+
+## How is snp.plotter used?
+
+Once snp.plotter and its dependencies are installed, snp.plotter can be loaded into R using this command:
+
+@library(snp.plotter)@
+
+snp.plotter is then run using the following command. Explanation of snp.plotter configuration files and input files is provided in the [[file formats|File-Formats]] section. The configuration file specifies all the characteristics for the plot to be produced and the names of the data files to be used as input. Example "configuration and input files":https://github.com/downloads/cannin/snp_plotter/snp.plotter.20SNP.dataset.zip are also provided.
+
+@snp.plotter(config.file="config.txt")@
+
+Information about the configuration options is provided in the "documentation on CRAN":http://cran.r-project.org/web/packages/snp.plotter/snp.plotter.pdf, which can viewed from within R using this command.
+
+@?snp.plotter@
+
+## How do I incorporate the snp.plotter figures into my publication?
+
+The listing below shows the most common scenarios for inclusion of a figure into a publication; methods will vary based on the intended publication type:
+
+* *Inclusion of PDF into Word document:* PDF images can be selected and copied using the Adobe Reader snapshot tool. These images can then be pasted into a Word document.
+* *Inclusion of PDF/EPS into LaTeX document:* Images included into DVI file using *latex* must be in the EPS format. PDF documents created by *pdflatex* cannot use files in the EPS format and requires the PDF format. The following is basic LaTeX code for including an image. *FILENAME* must be changed to the appropriate filename.
+
+<pre><code>\documentclass{article}
+\usepackage{graphicx}
+\begin{document}
+\begin{figure}
+\includegraphics{FILENAME}
+\end{figure}
+\end{document}
+</code></pre>
+
+* *Conversion of PDF/EPS file into other formats using Ghostscript:* Ghostscript can be used to convert PDF and EPS files into a variety of raster formats such as JPG, BMP, PNG, etc. The following commandline converts an EPS image into a JPG image; the resulting image has a resolution of 300 DPI and pixel dimension of 1050x1050 pixels. Further information on the usage of Ghostscript can be found "here":http://www.cs.wisc.edu/~ghost/doc/AFPL/8.00/Use.htm. *FILENAME* must be changed to the appropriate filename.
+
+@gs -q -dNOPAUSE -dSAFER -dBATCH -r300 -g1050x1050 -sOutputFile=FILENAME.jpg -sDEVICE=jpeg FILENAME.eps@
+ 
+ 
+ 

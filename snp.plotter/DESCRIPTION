@@ -1,10 +1,21 @@
 Package: snp.plotter
-Version: 0.4
-Date: 2011-05-11
+Version: 0.5
+Date: 2014-02-13
 Title: snp.plotter
-Author: Augustin Luna <augustin@mail.nih.gov>, Kristin K. Nicodemus <kristin.nicodemus@well.ox.ac.uk>, <nicodemusk@mail.nih.gov>
+Author: Augustin Luna <augustin@mail.nih.gov>, Kristin K. Nicodemus
+    <kristin.nicodemus@well.ox.ac.uk>, <nicodemusk@mail.nih.gov>
 Maintainer: Augustin Luna <augustin@mail.nih.gov>
-Depends: R (>= 2.0.0), genetics, grid
-Description: Creates plots of p-values using single SNP and/or haplotype data. Main features of the package include options to display a linkage disequilibrium (LD) plot and the ability to plot multiple datasets simultaneously. Plots can be created using global and/or individual haplotype p-values along with single SNP p-values. Images are created as either PDF/EPS files.
-License: GPL version 2 or newer
-URL: http://cbdb.nimh.nih.gov/~kristin/snp.plotter.html
+Depends:
+    R (>= 2.0.0),
+    genetics,
+    grid
+Description: Creates plots of p-values using single SNP and/or haplotype data.
+    Main features of the package include options to display a linkage
+    disequilibrium (LD) plot and the ability to plot multiple datasets
+    simultaneously. Plots can be created using global and/or individual
+    haplotype p-values along with single SNP p-values. Images are created as
+    either PDF/EPS files.
+License: GPL (>= 2)
+URL: https://github.com/cannin/snp_plotter or
+    http://cbdb.nimh.nih.gov/~kristin/snp.plotter.html
+biocViews: Genetics

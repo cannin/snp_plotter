@@ -1,27 +1,26 @@
 snp.plotter Changelog
 
-==Version 0.1==
+# Version 0.5
+* Added a knitr-based vignette and roxygen2-based documentation
+* Changed website to GitHub
+* Added example data into the package 
 
-- Stable Version
-
-==Version 0.2==
-
-- Changed all underscores "_" to "." throughout the package to make the documentation compatible with Latex. 
-
-==Version 0.2.1==
-
-- Changed error messages to "Error: Check the X.FILE parameter" when a file cannot be found
-- Used gsub() to remove white space around SNP names in both the SNP.FILE and HAP.FILE
-
-==Version 0.3==
-
-- Changed dependency to GeneticsBase 
-
-==Version 0.3.1==
-
-- Changed dependency back from GeneticsBase because GeneticsBase is no longer in the Bioconductor repository
-
-==Version 0.4==
-
-- Added new configuration options. Connecting lines can now be vertically adjusted, and fonts and symbols can
+# Version 0.4
+* Added new configuration options. Connecting lines can now be vertically adjusted, and fonts and symbols can
   be scaled to allow a larger number of SNPs to be displayed. 
+
+# Version 0.3.1
+* Changed dependency back from GeneticsBase because GeneticsBase is no longer in the Bioconductor repository
+
+# Version 0.3
+* Changed dependency to GeneticsBase 
+
+# Version 0.2.1
+* Changed error messages to "Error: Check the X.FILE parameter" when a file cannot be found
+* Used gsub() to remove white space around SNP names in both the SNP.FILE and HAP.FILE
+
+# Version 0.2
+* Changed all underscores "_" to "." throughout the package to make the documentation compatible with Latex. 
+
+# Version 0.1
+* Stable Version
