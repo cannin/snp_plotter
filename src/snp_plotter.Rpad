@@ -1,0 +1,226 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+<head>
+  <title>snp.plotter Rpad Interface</title>
+
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+  <script type="text/javascript" src="gui/dojo.js"></script>
+  <script type="text/javascript" src="gui/Rpad.js"></script>
+  <title>snp.plotter Image</title>
+
+
+</head>
+
+<style type="text/css">
+* {
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+	font-size: 12px;
+	background-color: #FFFFFF;
+	padding: 5px;
+	
+}
+
+h1 {
+	font-size: 18px;
+	padding: 5px 0px 5px 0px;
+	color: #3C0000;
+}
+
+
+.Rpad_input {
+	border: 1px solid #000000;
+}
+
+a {
+	color: #CC0000;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #CC0000;
+	text-decoration: underline;
+}
+
+
+select, textarea {
+	border: 1px solid #000000;
+}
+
+
+</style>
+
+
+	<body>
+
+<h1>snp.plotter Rpad Interface</h1>
+
+<form name="snp_plotter">
+<p>snp.plotter creates plots of p-values using single SNP and/or haplotype data. Main features of the package include options to display a linkage disequilibrium (LD) plot and the ability to plot multiple datasets simultaneously. Plots can be created using global and/or individual haplotype p-values along with single SNP p-values. Images are created
+as either <a href="http://en.wikipedia.org/wiki/Pdf">Portable Document Format (PDF)</a> or <a href="http://en.wikipedia.org/wiki/Encapsulated_PostScript">Encapsulated (EPS)</a> files. More information is provided on the <a href="http://cbdb.nimh.nih.gov/~kristin/snp.plotter.html">snp.plotter website.</a></p>
+
+
+<p><b>SNP Image Name: </b><span contenteditable="false"><input class="Rpad_input" name="IMAGE_NAME" rpadtype="Rstring" value="snp_plotter"></span></p>
+  <p><b>Image Title: </b> <span contenteditable="false"><input class="Rpad_input" name="IMAGE_TITLE" rpadtype="Rstring" value="snp.plotter Image"></span></p>
+  <p><b>Dataset Label: </b> <span contenteditable="false"><input class="Rpad_input" name="DATASET_LABELS" rpadtype="Rstring" value="Dataset"></span></p>
+  <p><b>P-value Threshold: </b> <span contenteditable="false"><input class="Rpad_input" name="PVAL_THRESHOLD" rpadtype="Rvariable" value="1"></span></p>
+  <p><b>Scale length of connecting lines by this factor: </b> <span contenteditable="false"><input class="Rpad_input" name="CONNECTING_LINES_FACTOR" rpadtype="Rvariable" value="1"></span></p>
+   
+<p><b>SNP Color: </b> <span contenteditable="false">
+  <select name="COLOR_LIST">
+  <option>red</option>
+  <option>blue</option>
+  <option>green</option>
+  <option>yellow</option>
+  <option>black</option>
+  <option>orange</option>
+  </select>
+
+  </span> </p>
+
+  <p><b>Symbol: </b> <span contenteditable="false">
+  <select name="SYMBOLS">
+  <option>circle</option>
+  <option>square</option>
+  <option>diamond</option>
+  <option>triangle</option>
+  <option>circle-fill</option>
+  <option>square-fill</option>
+  <option>diamond-fill</option>
+  <option>triangle-fill</option>
+  <option>NA</option>
+  </select>
+
+  </span> </p>
+
+  <p><b>LD Map Color Scheme: </b> <span contenteditable="false">
+  <select name="LD_COLOR_SCHEME">
+  <option>heat</option>
+  <option>topo</option>
+  <option>cm</option>
+  <option>gray</option>
+  </select>
+
+  </span> </p>
+
+  <p><b>LD Metric: </b> <span contenteditable="false">
+  <select name="LD_TYPE">
+  <option>rsquared</option>
+  <option>dprime</option>
+  </select>
+
+  </span> </p>
+
+  <p><b>Y-axis scale: </b> <span contenteditable="false">
+  <select name="LAB_Y">
+  <option>log</option>
+  <option>ln</option>
+  </select>
+
+  </span> </p>
+
+
+  <p><b>Display Type: </b> <span contenteditable="false">
+  <select name="DISP_TYPE">
+  <option>symbol</option>
+  </select>
+
+  </span> </p>
+
+  <p><b>Image Type: </b> <span contenteditable="false">
+  <select name="IMAGE_TYPE">
+  <option>eps</option>
+  <option>pdf</option>
+  </select>
+
+  </span> </p>
+
+  <p><b>Image Size (in inches): </b> <span contenteditable="false">
+  <select name="IMAGE_SIZE">
+  <option>3.5</option>
+  <option>7</option>
+  </select>
+
+  </span> </p>
+  <p>Distribute SNPs evenly on plot? <span contenteditable="false"> <input name="EVEN_SPACED" type="checkbox"> </span></p>
+
+  <p>Use global p-values? <span contenteditable="false">
+  <input checked="true" name="USE_GBL_PVAL" type="checkbox"> </span></p>
+
+  <p>Display LD heat map color bar?<span contenteditable="false"> <input checked="true" name="DISP_COLOR_BAR" type="checkbox"> </span></p>
+
+  <p>Display a label showing the range of the X-axis?<span contenteditable="false"> <input checked="true" name="DISP_PHYS_DIST" type="checkbox"> </span></p>
+  <p>Display evenly spaced X-axis tick-labels?<span contenteditable="false"> <input checked="true" name="DISP_MULT_LAB_X" type="checkbox"> </span></p>
+  <p>Display lines at p-value thresholds of 0.05, 0.01, 0.001, etc.?<span contenteditable="false"> <input checked="true" name="DISP_MARKER_LINES" type="checkbox"> </span></p>
+
+  <p>Display legend? <span contenteditable="false">
+  <input checked="true" name="DISP_LEGEND" type="checkbox"> </span></p>
+
+  <p>Display SNPs? <span contenteditable="false"> <input checked="true" name="DISP_SNP" type="checkbox"> </span></p>
+
+  <p>Display haplotypes? <span contenteditable="false">
+  <input checked="true" name="DISP_HAP" type="checkbox"> </span></p>
+
+  <p>Display LD heat map? <span contenteditable="false">
+  <input name="DISP_LDMAP" type="checkbox"> </span></p>
+
+  <p><b>SNP Data Input: Copy and paste </b></p>
+  <textarea dojotype="Rpad" rpadtype="file" filename="snp_data.txt" rows="5" cols="50" rpadoutput="none" wrap="off"></textarea>
+
+  <p><b>Haplotype Data Input: Copy and paste </b></p>
+  <textarea dojotype="Rpad" rpadtype="file" filename="hap_data.txt" rows="5" cols="50" rpadoutput="none" wrap="off"></textarea>
+
+  <p><b>Pedigree Data Input: Copy and paste </b></p>
+  <textarea dojotype="Rpad" rpadtype="file" filename="genotype.txt" rows="5" cols="50" rpadoutput="none" wrap="off"></textarea>
+
+  <p><span contenteditable="false"><input onclick="javascript:rpad.calculatePage();" value="Create Plot" type="button" wrap="off"></span><br>
+
+  </p>
+
+</form>
+
+<pre dojotype="Rpad" rpadhidesource="true">
+
+library(grid)
+library(lattice)
+library(genetics) 
+library(snp.plotter)
+
+IMAGE_FILE <- paste(IMAGE_NAME, ".", IMAGE_TYPE, sep="")
+
+snp.plotter(SNP_FILE = "snp_data.txt", 
+		 HAP_FILE = "hap_data.txt", 
+		 GENOTYPE_FILE = "genotype.txt", 
+		 LAB_Y = LAB_Y, 
+		 SYMBOLS = SYMBOLS,
+		 EVEN_SPACED = EVEN_SPACED, 
+		 PVAL_THRESHOLD = PVAL_THRESHOLD, 
+		 USE_GBL_PVAL = USE_GBL_PVAL, 
+		 DISP_TYPE = DISP_TYPE, 
+		 DISP_LDMAP = DISP_LDMAP, 
+		 DISP_HAP = DISP_HAP, 
+		 DISP_SNP = DISP_SNP, 
+		 DISP_MARKER_LINES = DISP_MARKER_LINES, 
+		 LD_COLOR_SCHEME = LD_COLOR_SCHEME, 
+		 COLOR_LIST = COLOR_LIST, 
+		 LD_TYPE = LD_TYPE, 
+		 DISP_COLOR_BAR = DISP_COLOR_BAR,
+		 DISP_PHYS_DIST = DISP_PHYS_DIST,
+		 IMAGE_TITLE = IMAGE_TITLE, 
+		 DISP_LEGEND = DISP_LEGEND, 
+		 DATASET_LABELS = DATASET_LABELS, 
+		 IMAGE_TYPE = IMAGE_TYPE, 
+		 IMAGE_SIZE = IMAGE_SIZE,
+		 DISP_MULT_LAB_X = DISP_MULT_LAB_X, 
+		 IMAGE_NAME = IMAGE_NAME,
+		 CONNECTING_LINES_FACTOR = CONNECTING_LINES_FACTOR)
+
+cat("Done.\nImage Location: ", paste(getwd(), .Platform$file.sep, IMAGE_FILE, sep=""), "\n")
+</pre>
+
+</body>
+</html>

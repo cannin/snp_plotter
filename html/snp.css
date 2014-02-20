@@ -1,0 +1,140 @@
+* {
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+	font-size: 12px;
+	background-color: #FFFFFF;
+}
+
+h1 {
+	font-size: 18px;
+	padding: 5px 0px 5px 0px;
+	color: #3C0000;
+}
+
+pre {
+   font-family: Courier, monospace;
+   background: #EEEEEE;
+   font-size: 11px;
+   padding: 0px 0px 0px 0px;
+   border: 1px solid #999999;
+   overflow: hidden;
+}
+/* IE Fixes */
+* html body pre {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+#overallbox {
+	width: 95%;
+	background-color: #FFFFFF;
+	margin: 0px auto 0px auto;
+	padding: 0px 20px 0 20px
+}
+ 
+#logo { 
+	text-align: center;
+	width: 200px;
+	margin: 0px 5px 25px 0px;
+	padding: 50px 10px 5px 10px;
+	background-color: #CC0000;
+	color: #FFFFFF;
+	font-weight: normal;
+	font-size: 20px;
+	letter-spacing: 5px;
+	text-transform: lowercase;
+	font-weight: bold;
+}
+
+#logo a {
+	color: #FFFFFF;
+	text-decoration: none;
+}
+
+#logo a:hover, a:visited, a:link { 
+	color: #FFFFFF;
+	text-decoration: none;
+}
+
+#nav {
+	width: 550px;
+	margin: -75px 0px 50px 200px;
+	padding: 0px 0px 0px 0px;
+	color: #A72626;
+	font-weight: normal;
+	font-size: 16px;
+	text-align: right;
+	float: right;
+}
+
+#nav li {
+	list-style: none;
+	display: inline;
+	margin-right: 20px;
+}
+
+#nav a {
+	font-size: 12px;
+	color: #A72626;
+	text-decoration: none;
+}
+
+#nav a:hover {
+	color: #8B0000;
+	text-decoration: underline;
+}
+
+#submit {
+	background-color: #CC0000;
+	color: #FFFFFF;
+	font-weight: bold;
+	margin: 3px 3px 3px 3px;
+}
+
+.input { 
+	border: 1px solid #CC0000;
+}
+
+.box {
+	clear: both;
+	border: 1px solid #999999;
+	padding: 5px 20px 5px 20px;
+	margin: 0px 5px 5px 0px;
+}
+
+.box a:link, a:visited {
+	color: #CC0000;
+	text-decoration: none;
+}
+
+.box a:hover {
+	color: #CC0000;
+	text-decoration: underline;
+}
+
+.floatRight {
+	float: right; 
+	clear: both;
+	margin: -50px 20px 10px 10px;
+	padding: 2px;	
+	border: 0px solid #FFFFFF;
+}
+
+.topLink {
+	float: right; 
+	margin: -24px -16px 10px 10px;
+	padding: 2px;
+	border-right: 1px solid #999999;
+	border-bottom: 1px solid #999999;
+	border-left: 0px solid #FFFFFF;
+	border-top: 0px solid #FFFFFF;
+}
+
+@media print { .floatRight { display: none; } }
+@media print { .topLink { display: none; } }
+
+
+
