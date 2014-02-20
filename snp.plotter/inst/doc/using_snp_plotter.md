@@ -3,10 +3,8 @@
 %\VignetteIndexEntry{Using snp.plotter}
 -->
 
-```{r knitrSetup, include=FALSE}
-library(knitr)
-opts_chunk$set(out.extra='style="display:block; margin: auto"', fig.align="center")
-```
+
+
 
 # Introduction
 
@@ -67,21 +65,27 @@ Error: package 'PACKAGE_FILENAME' could not be loaded
 
 Once snp.plotter and its dependencies are installed, snp.plotter can be loaded into R using this command:
 
-```{r load, eval=FALSE}
+
+```r
 library(snp.plotter)
 ```
 
+
 snp.plotter is then run using the following command. Explanation of snp.plotter configuration files and input files is provided in the file formats section. The configuration file specifies all the characteristics for the plot to be produced and the names of the data files to be used as input. Example [configuration and input files](https://github.com/downloads/cannin/snp_plotter/snp.plotter.20SNP.dataset.zip) are also provided.
 
-```{r configRun, eval=FALSE}
-snp.plotter(config.file="config.txt")
+
+```r
+snp.plotter(config.file = "config.txt")
 ```
+
 
 Information about the configuration options is provided in the [documentation on CRAN](http://cran.r-project.org/web/packages/snp.plotter/snp.plotter.pdf), which can viewed from within R using this command.
 
-```{r help, eval=FALSE, tidy=FALSE} 
+
+```r
 ?snp.plotter
 ```
+
 
 ## How do I incorporate the snp.plotter figures into my publication?
 

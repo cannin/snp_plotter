@@ -195,3 +195,24 @@ CCCCFF
 000099
 000066
 ``` 
+
+# Download
+## Where can I get the the source code of snp.plotter for my own project? 
+* [Download from CRAN](http://cran.r-project.org/web/packages/snp.plotter/index.html)
+* Download example configuration and input files: [20 SNP](https://github.com/cannin/snp_plotter/raw/master/snp.plotter.20SNP.dataset.zip) dataset
+* [Learn about the R project for statistical computing](http://www.r-project.org/) 
+* [Read the documentation](http://cran.r-project.org/web/packages/snp.plotter/snp.plotter.pdf)
+* [View release notes](http://cran.r-project.org/web/packages/snp.plotter/ChangeLog) 
+
+# Author and Citation Information 
+## Authors 
+* Augustin Luna, PhD
+* Kristin Nicodemus, PhD, MPH
+
+## Acknowledgements  
+Anushka Aqil for her feedback 
+
+## Citation 
+Please cite the following publication, if you include figures generated with snp.plotter
+
+Luna A, Nicodemus KK. [snp.plotter: an R-based SNP/haplotype association and linkage disequilibrium plotting package.](http://www.ncbi.nlm.nih.gov/pubmed/17234637) Bioinformatics. 2007 Mar 15;23(6):774-6.

@@ -9,6 +9,8 @@ Depends:
     R (>= 2.0.0),
     genetics,
     grid
+Suggests: 
+    knitr
 Description: Creates plots of p-values using single SNP and/or haplotype data.
     Main features of the package include options to display a linkage
     disequilibrium (LD) plot and the ability to plot multiple datasets
@@ -19,3 +21,4 @@ License: GPL (>= 2)
 URL: https://github.com/cannin/snp_plotter or
     http://cbdb.nimh.nih.gov/~kristin/snp.plotter.html
 biocViews: Genetics
+VignetteBuilder: knitr
