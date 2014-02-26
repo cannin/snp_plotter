@@ -130,7 +130,7 @@
 #'   config.file argument.
 #' @note Example Datasets Examples of SNP.FILE, HAP.FILE, GENOTYPE.FILE, and
 #'   configuration files are provided at
-#'   \url{http://cbdb.nimh.nih.gov/~kristin/snp.plotter.html} with further
+#'   \url{https://github.com/cannin/snp_plotter} with further
 #'   explanation on the file formats.
 #' @note Lists Comma delimited lists (SNP.FILE, HAP.FILE, COLOR.LIST, SYMBOLS,
 #'   etc) should not have spaces between entries. If using the config.file
@@ -155,6 +155,11 @@
 #'   Nicodemus \email{kristin.nicodemus at well.ox.ac.uk}. Website:
 #'   \url{https://github.com/cannin/snp_plotter}
 #' @keywords aplot, hplot
+#' @examples
+#' \dontrun{
+#' snp.plotter(config.file="config.txt")
+#' }
+#' @import genetics
 #' @export
 snp.plotter <- function(EVEN.SPACED = FALSE, 
 		PVAL.THRESHOLD = 1, 

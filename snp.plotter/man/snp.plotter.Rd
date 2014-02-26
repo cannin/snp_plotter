@@ -211,8 +211,8 @@ snp.plotter be run using the config.file argument.
 
 Example Datasets Examples of SNP.FILE, HAP.FILE,
 GENOTYPE.FILE, and configuration files are provided at
-\url{http://cbdb.nimh.nih.gov/~kristin/snp.plotter.html}
-with further explanation on the file formats.
+\url{https://github.com/cannin/snp_plotter} with further
+explanation on the file formats.
 
 Lists Comma delimited lists (SNP.FILE, HAP.FILE,
 COLOR.LIST, SYMBOLS, etc) should not have spaces between
@@ -242,6 +242,11 @@ but provides default values for only 5 set of results
 
 File Input All input files should be placed in the same
 directory
+}
+\examples{
+\dontrun{
+snp.plotter(config.file="config.txt")
+}
 }
 \author{
 Augustin Luna \email{augustin.luna at mail.nih.gov},
