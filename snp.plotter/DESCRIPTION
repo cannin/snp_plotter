@@ -1,6 +1,6 @@
 Package: snp.plotter
-Version: 0.5.1
-Date: 2014-02-26
+Version: 0.5.2
+Date: 2015-01-26
 Title: snp.plotter
 Author: Augustin Luna <augustin@mail.nih.gov>, Kristin K. Nicodemus
     <kristin.nicodemus@well.ox.ac.uk>, <nicodemusk@mail.nih.gov>
@@ -19,7 +19,6 @@ Description: Creates plots of p-values using single SNP and/or haplotype data.
     haplotype p-values along with single SNP p-values. Images are created as
     either PDF/EPS files.
 License: GPL (>= 2)
-URL: https://github.com/cannin/snp_plotter or
-    http://cbdb.nimh.nih.gov/~kristin/snp.plotter.html
+URL: https://github.com/cannin/snp_plotter
 biocViews: Genetics
 VignetteBuilder: knitr

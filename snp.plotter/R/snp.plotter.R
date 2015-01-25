@@ -301,6 +301,10 @@ snp.plotter <- function(EVEN.SPACED = FALSE,
 				config.var$DISP.LEGEND <- as.logical(tmp[[1]][2])
 			} 
 			
+			if(identical("DISP.MARKER.LINES", tmp[[1]][1])) {
+				config.var$DISP.MARKER.LINES <- as.logical(tmp[[1]][2])
+			} 
+			
 			if(identical("SAMPLE.LABELS", tmp[[1]][1])) {
 				config.var$SAMPLE.LABELS <- tmp[[1]][2]
 			} 
