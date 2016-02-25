@@ -1,3 +1,6 @@
+[![Travis-CI Build Status](https://travis-ci.org/cannin/snp_plotter.svg?branch=master)](https://travis-ci.org/cannin/snp_plotter)
+[![codecov.io](https://codecov.io/github/cannin/snp_plotter/coverage.svg?branch=master)](https://codecov.io/github/cannin/snp_plotter?branch=master)
+
 <!--
 %\VignetteEngine{knitr::knitr}
 %\VignetteIndexEntry{Using PaxtoolsR}
@@ -10,7 +13,7 @@ opts_chunk$set(out.extra='style="display:block; margin: auto"', fig.align="cente
 
 # Introduction
 
-## What is snp.plotter? 
+## What is snp.plotter?
 
 snp.plotter is an R package that creates publishable-quality plots of p-values using single SNP and/or haplotype data. Main features of the package include options to display a linkage disequilibrium (LD) plot and the ability to plot multiple sets of results simultaneously. Plots can be created using global and/or individual haplotype p-values along with single SNP p-values. Images are created as either [Portable Document Format (PDF)](http://en.wikipedia.org/wiki/Pdf) or [Encapsulated (EPS) files](http://en.wikipedia.org/wiki/Encapsulated_PostScript).
 
@@ -79,7 +82,7 @@ snp.plotter(config.file="config.txt")
 
 Information about the configuration options is provided in the [documentation on CRAN](http://cran.r-project.org/web/packages/snp.plotter/snp.plotter.pdf), which can viewed from within R using this command.
 
-```{r help, eval=FALSE, tidy=FALSE} 
+```{r help, eval=FALSE, tidy=FALSE}
 ?snp.plotter
 ```
 
@@ -106,14 +109,14 @@ The listing below shows the most common scenarios for inclusion of a figure into
 gs -q -dNOPAUSE -dSAFER -dBATCH -r300 -g1050x1050 -sOutputFile=FILENAME.jpg -sDEVICE=jpeg FILENAME.eps
 ```
 
-# File Formats 
+# File Formats
 
 ## What file types are used by snp.plotter?
 
 snp.plotter uses tab-delimited text files as input files. These files can be created in a basic text editor such as Notepad in Windows or Excel saved as tab-delimited files using the "Save As" option. A dataset is composed a configuration file, a SNP and haplotype file for each result set, one genotype file, and an optional palette file. More information about these files can be found in the [documentation on CRAN](http://cran.r-project.org/web/packages/snp.plotter/snp.plotter.pdf).
 
 * **Configuration file:** The configuration file is the preferred method of running snp.plotter; it allows users to save preferred settings and avoids the inconvenience of writing extended R commands, repeatedly. There cannot be spaces after commas. A complete description of all possible plot characteristics can be found in the [documentation on CRAN](http://cran.r-project.org/web/packages/snp.plotter/snp.plotter.pdf). Result sets without haplotype results should be placed after those with results; no HAP.FILE entry should be specified in this case.
- 
+
 ```
 SNP.FILE=snp8_ss.txt,snp8_ss2.txt
 HAP.FILE=snp8_haplo.txt,snp8_haplo2.txt
@@ -141,7 +144,7 @@ IMAGE.SIZE=3.5
 ```
 
 * **SNP.FILE:** SNP.FILE includes four necessary columns ASSOC, SNP.NAME, LOC, and SS.PVAL corresponding to positive or negative association (indicating protective or susceptibility alleles, a SNP label, the location, and a p-value for each SNP. SNP labels may not start with numbers. In the figure, SNPs are indicated by the symbols chosen for the data, if symbol type 'NA' is specified, the SNP.FILE ASSOC column is read and an up-triangle and down-triangle are used to indicate positive and negative association (indicating susceptibility or protective alleles), respectively.
- 
+
 ```
 ASSOC	SNP.NAME	LOC	SS.PVAL
 +	rs10_8	126272509	0.065
@@ -155,7 +158,7 @@ ASSOC	SNP.NAME	LOC	SS.PVAL
 ```
 
 * **HAP.FILE:** HAP.FILE includes three necessary columns ASSOC, G.PVAL, and I.PVAL corresponding to positive or negative association (indicating protective or susceptibility alleles, a global p-value and an individual p-value for each haplotype followed by a set of columnns of SNPs with corresponding haplotypes. Haplotypes are presented in a step-wise fashion with the major allele given as 1 and the minor allele as 2; haplotype variants for a set of SNPs should be grouped. SNP labels in HAP.FILE must be the same as in SNP.FILE, and only SNPs with corresponding haplotypes need to be included. In the figure, unfilled symbols connected by solid lines are used to indicate global haplotype p-values, (a circle is used if no symbol is specified for the dataset). Unfilled and filled symbols are used to indicate alleles 1 and 2, respectively connected by solid lines and dashed lines for positive and negative association (indicating susceptibility or protective haplotypes) when using indivudal haplotype p-values.
- 
+
 ```
 ASSOC	G.PVAL	I.PVAL	rs10_8	rs11_8	rs12_8	rs13_8	rs14_8	rs15_8	rs16_8	rs17_8
 -	0.015	0.004	1	1	1					
@@ -166,14 +169,14 @@ ASSOC	G.PVAL	I.PVAL	rs10_8	rs11_8	rs12_8	rs13_8	rs14_8	rs15_8	rs16_8	rs17_8
 +	0.032	0.153			1	2	2			
 +	0.425	0.474				1	1	1		
 +	0.425	0.003				2	2	2		
-+	0.1	0.077					1	1	1	
-+	0.1	0.1					1	2	2	
++	0.1	0.077					1	1	1
++	0.1	0.1					1	2	2
 -	0.003	0.341						1	1	1
 +	0.003	0.001						2	2	2
 ```
 
-* **GENOTYPE.FILE:** GENOTYPE.FILE is a modified Linkage PED file. Each row should have the following information: family ID, individual ID, father ID, mother ID, sex, and affection status followed by marker loci coded as binary factors, as shown in the example below. This file should not have column headers. 
- 
+* **GENOTYPE.FILE:** GENOTYPE.FILE is a modified Linkage PED file. Each row should have the following information: family ID, individual ID, father ID, mother ID, sex, and affection status followed by marker loci coded as binary factors, as shown in the example below. This file should not have column headers.
+
 ```
 1	1	0	0	1	1	1	1	1	1
 2	1	0	0	2	1	1	1	1	1
@@ -183,7 +186,7 @@ ASSOC	G.PVAL	I.PVAL	rs10_8	rs11_8	rs12_8	rs13_8	rs14_8	rs15_8	rs16_8	rs17_8
 ```
 
 * **PALETTE.FILE (OPTIONAL):** PALETTE.FILE can be used to specify a color palette for the LD heatmap. To use the the PALETTE.FILE option, LD.COLOR.SCHEME must be set to "custom" and a file name must be provided to the PALETTE.FILE option. Custom color schemes cannot be used in conjunction with predefined color schemes such as "heat" or "gray". PALETTE.FILE colors are [hexidecimal HTML color codes](http://en.wikipedia.org/wiki/X11_color_names); one color per line. The first and last colors correspond to the lowest and highest value of the chosen LD metric, respectively.
- 
+
 ```
 FFFFFF
 CCCCFF
@@ -194,25 +197,25 @@ CCCCFF
 0000CC
 000099
 000066
-``` 
+```
 
 # Download
-## Where can I get the the source code of snp.plotter for my own project? 
+## Where can I get the the source code of snp.plotter for my own project?
 * [Download from CRAN](http://cran.r-project.org/web/packages/snp.plotter/index.html)
 * Download example configuration and input files: [20 SNP](https://github.com/cannin/snp_plotter/raw/master/snp.plotter.20SNP.dataset.zip) dataset
-* [Learn about the R project for statistical computing](http://www.r-project.org/) 
+* [Learn about the R project for statistical computing](http://www.r-project.org/)
 * [Read the documentation](http://cran.r-project.org/web/packages/snp.plotter/snp.plotter.pdf)
-* [View release notes](http://cran.r-project.org/web/packages/snp.plotter/ChangeLog) 
+* [View release notes](http://cran.r-project.org/web/packages/snp.plotter/ChangeLog)
 
-# Author and Citation Information 
-## Authors 
+# Author and Citation Information
+## Authors
 * Augustin Luna, PhD
 * Kristin Nicodemus, PhD, MPH
 
 ## Acknowledgements  
-Anushka Aqil for her feedback 
+Anushka Aqil for her feedback
 
-## Citation 
+## Citation
 Please cite the following publication, if you include figures generated with snp.plotter
 
 Luna A, Nicodemus KK. [snp.plotter: an R-based SNP/haplotype association and linkage disequilibrium plotting package.](http://www.ncbi.nlm.nih.gov/pubmed/17234637) Bioinformatics. 2007 Mar 15;23(6):774-6.
