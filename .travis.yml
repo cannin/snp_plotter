@@ -5,6 +5,9 @@ cache: packages
 
 install:
   - cd ./snp.plotter
+  
+r_packages:
+  - rmarkdown  
 
 # Need this if also using covr to get code coverage
 r_github_packages:
