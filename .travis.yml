@@ -3,7 +3,7 @@ language: r
 
 cache: packages
 
-install:
+before_install:
   - cd ./snp.plotter
   
 r_packages:
