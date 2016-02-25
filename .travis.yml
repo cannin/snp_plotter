@@ -3,6 +3,9 @@ language: r
 
 cache: packages
 
+# Bioconductor
+bioc_required: true
+
 before_install:
   - cd ./snp.plotter
   
