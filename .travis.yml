@@ -3,7 +3,8 @@ language: r
 
 cache: packages
 
-script: cd snp.plotter
+install:
+  - cd ./snp.plotter
 
 # Need this if also using covr to get code coverage
 r_github_packages:
