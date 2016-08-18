@@ -66,6 +66,24 @@ The following error indicates that additional packages need to be installed: **P
 Error: package 'PACKAGE_FILENAME' could not be loaded
 ```
 
+## Install Development Version from GitHub
+
+### Install devtools
+```
+install.packages("devtools")
+```
+
+### Install snp.plotter Development Version
+```
+library(devtools)
+install_github(repo="cannin/snp_plotter",
+  build_vignette=FALSE,
+  dependencies=TRUE,
+  args="--no-multiarch",
+  subdir="snp.plotter"  
+)
+```
+
 ## How is snp.plotter used?
 
 Once snp.plotter and its dependencies are installed, snp.plotter can be loaded into R using this command:
