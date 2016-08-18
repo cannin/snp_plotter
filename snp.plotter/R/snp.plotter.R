@@ -204,7 +204,7 @@ snp.plotter <- function(EVEN.SPACED = FALSE,
 		#DEBUG STATEMENT
 		cat("START READ.CONFIG\n")
 	
-		raw.config <- read.table(config.file, header=FALSE, as.is=TRUE, fill=TRUE, sep="\t", blank.lines.skip = TRUE)
+		raw.config <- read.table(config.file, header=FALSE, as.is=TRUE, fill=TRUE, sep="\t", blank.lines.skip = TRUE, comment.char = "")
 	
 		for(i in 1:length(raw.config$V1)) {
 			tmp <- strsplit(raw.config$V1[i], "=")
