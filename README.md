@@ -48,6 +48,12 @@ Researchers conducting gene association studies who need to create images showin
 
 snp.plotter requires the installation of R, the statistical computing software, freely available [here](http://www.r-project.org/) for Linux, Windows, or MacOS. snp.plotter uses three contributed packages: grid, lattice, and genetics available from the R Project website. snp.plotter can be downloaded [CRAN](http://cran.r-project.org/web/packages/snp.plotter/index.html). Packages in the current working directory of R can be installed using the **install.packages** command.
 
+```
+install.packages("snp.plotter")
+```
+
+### Alternative install.packages() Instructions
+
 In **Windows,** make sure that you have downloaded the .zip version of a package, which is a pre-compiled binary. Change the word **PACKAGE_FILENAME** to the name of the package being installed.
 
 ```
@@ -66,14 +72,14 @@ The following error indicates that additional packages need to be installed: **P
 Error: package 'PACKAGE_FILENAME' could not be loaded
 ```
 
-## Install Development Version from GitHub
+### Install Development Version from GitHub
 
-### Install devtools
+#### Install devtools
 ```
 install.packages("devtools")
 ```
 
-### Install snp.plotter Development Version
+#### Install snp.plotter Development Version
 ```
 library(devtools)
 install_github(repo="cannin/snp_plotter",
