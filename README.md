@@ -1,5 +1,4 @@
 [![Travis-CI Build Status](https://travis-ci.org/cannin/snp_plotter.svg?branch=master)](https://travis-ci.org/cannin/snp_plotter)
-[![codecov.io](https://codecov.io/github/cannin/snp_plotter/coverage.svg?branch=master)](https://codecov.io/github/cannin/snp_plotter?branch=master)
 
 <!--
 %\VignetteEngine{knitr::knitr}
