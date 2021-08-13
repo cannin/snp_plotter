@@ -1,5 +1,9 @@
 snp.plotter Changelog
 
+# Version 0.5.5
+* Changes to roxygen documentation
+* Additional examples added
+
 # Version 0.5
 * Added a knitr-based vignette and roxygen2-based documentation
 * Changed website to GitHub
