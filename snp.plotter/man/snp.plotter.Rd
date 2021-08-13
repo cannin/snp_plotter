@@ -152,7 +152,7 @@ start with numbers. Example: "s1.txt,s2.txt,s3.txt" MANDATORY}
 
 \item{HAP.FILE}{Tab-delimited input file containing p-values for haplotypes 
 (see note below). The contents of each HAP.FILE includes three necessary
-columns ASSOC, G.PVAL, and I.PVAL followed by a set of columnns of SNPs
+columns ASSOC, G.PVAL, and I.PVAL followed by a set of columns of SNPs
 with corresponding haplotypes. Haplotypes are presented in a step-wise
 fashion with the major allele given as 1 and the minor allele as 2;
 haplotype variants for a set of SNPs should be grouped. SNP labels in
@@ -161,7 +161,7 @@ haplotypes need to be included. Example: "h1.txt,h2.txt,h3.txt" OPTIONAL}
 
 \item{GENOTYPE.FILE}{Tab-delimited input file containing genotypes as a PED
 file with 6 columns preceding the genotype data: family ID, individual ID,
-father ID, mother ID, sex, and affection status; these coloums are not used
+father ID, mother ID, sex, and affection status; these columns are not used
 in the creation of the LD plot. This file is used for calculating D' or
 r-squared values for the LD heatmap plot. Only one LD plot can be shown
 (see note below). OPTIONAL}
@@ -195,7 +195,7 @@ snp.plotter produces publishable-quality plots of p-values using
   plot using either the r-squared or D' LD metric with a user-specified LD
   heatmap color scheme, setting the X-axis to equal spacing or to use the
   physical SNP map, and specification of plot labels, colors and symbols for
-  desplaying p-values. A major strength of the package is that it can plot
+  displaying p-values. A major strength of the package is that it can plot
   multiple set of results simultaneously. Plots can be created using global
   and/or individual haplotype p-values along with single SNP p-values. The
   package provides a simple way to convey both association and LD information
@@ -220,11 +220,11 @@ Lists Comma delimited lists (SNP.FILE, HAP.FILE, COLOR.LIST, SYMBOLS,
 
 Colors COLOR.LIST colors are limited to those known to GraphApp. A
   short list can be found at
-  \url{http://en.wikipedia.org/wiki/X11.color.names}; the complete list is
+  \url{https://en.wikipedia.org/wiki/X11_color_names}; the complete list is
   located in the R source code file
 
 Palettes PALETTE.FILE colors are hexidecimal HTML color codes
-  \url{http://en.wikipedia.org/wiki/X11.color.names}. The first and last
+  \url{https://en.wikipedia.org/wiki/X11_color_names}. The first and last
   colors correspond to the lowest and highest value of the chosen LD metric,
   respectively. One color per line.
 
@@ -263,5 +263,3 @@ Augustin Luna \email{augustin.luna at mail.nih.gov}, Kristin K.
   Nicodemus \email{kristin.nicodemus at well.ox.ac.uk}. Website:
   \url{https://github.com/cannin/snp_plotter}
 }
-\keyword{aplot,}
-\keyword{hplot}

@@ -12,17 +12,17 @@ opts_chunk$set(out.extra='style="display:block; margin: auto"', fig.align="cente
 
 ## What is snp.plotter? 
 
-snp.plotter is an R package that creates publishable-quality plots of p-values using single SNP and/or haplotype data. Main features of the package include options to display a linkage disequilibrium (LD) plot and the ability to plot multiple sets of results simultaneously. Plots can be created using global and/or individual haplotype p-values along with single SNP p-values. Images are created as either [Portable Document Format (PDF)](http://en.wikipedia.org/wiki/Pdf) or [Encapsulated (EPS) files](http://en.wikipedia.org/wiki/Encapsulated_PostScript).
+snp.plotter is an R package that creates publishable-quality plots of p-values using single SNP and/or haplotype data. Main features of the package include options to display a linkage disequilibrium (LD) plot and the ability to plot multiple sets of results simultaneously. Plots can be created using global and/or individual haplotype p-values along with single SNP p-values. Images are created as either [Portable Document Format (PDF)](https://en.wikipedia.org/wiki/Pdf) or [Encapsulated (EPS) files](https://en.wikipedia.org/wiki/Encapsulated_PostScript).
 
 ## What do snp.plotter images look like?
 
-Here is a sample image as both a PDF and a EPS image. PDF images can be viewed using the free [Adobe Reader](http://www.adobe.com/products/acrobat.html) software. EPS (or PDF) images can be viewed using front-end software for [Ghostscript](http://www.cs.wisc.edu/~ghost/), a Postscript and PDF interpreter: [Ghostview and GV](http://www.cs.wisc.edu/~ghost/) for Unix/X11 systems and [GSView](http://www.cs.wisc.edu/~ghost/) for Windows.  
+Here is a sample image as both a PDF and a EPS image. PDF images can be viewed using the free [Adobe Reader](https://www.adobe.com/products/acrobat.html) software. EPS (or PDF) images can be viewed using front-end software for [Ghostscript](https://www.cs.wisc.edu/~ghost/), a Postscript and PDF interpreter: [Ghostview and GV](https://www.cs.wisc.edu/~ghost/) for Unix/X11 systems and [GSView](https://www.cs.wisc.edu/~ghost/) for Windows.  
 
-![snp.plotter example image](https://raw.github.com/cannin/snp_plotter/master/docs/null_rsq_phys_color.png)
+![snp.plotter example image](docs/null_rsq_phys_color.png)
 
 ## Who are the intended users of snp.plotter?
 
-Researchers conducting gene association studies who need to create images showing results in the form of p-values of their work along with a [linkage disequilibrium](http://en.wikipedia.org/wiki/Linkage_disequilibrium) plot to show the underlying structure of the study population. Because snp.plotter is a visualization tool, the type of study design used either family-based, case-control, or a combination is irrelevant.
+Researchers conducting gene association studies who need to create images showing results in the form of p-values of their work along with a [linkage disequilibrium](https://en.wikipedia.org/wiki/Linkage_disequilibrium) plot to show the underlying structure of the study population. Because snp.plotter is a visualization tool, the type of study design used either family-based, case-control, or a combination is irrelevant.
 
 ## What are the main features of snp.plotter?
 
@@ -43,7 +43,7 @@ Researchers conducting gene association studies who need to create images showin
 
 ## How do I install snp.plotter?
 
-snp.plotter requires the installation of R, the statistical computing software, freely available [here](http://www.r-project.org/) for Linux, Windows, or MacOS. snp.plotter uses three contributed packages: grid, lattice, and genetics available from the R Project website. snp.plotter can be downloaded [CRAN](http://cran.r-project.org/web/packages/snp.plotter/index.html). Packages in the current working directory of R can be installed using the **install.packages** command.
+snp.plotter requires the installation of R, the statistical computing software, freely available [here](https://www.r-project.org/) for Linux, Windows, or MacOS. snp.plotter uses three contributed packages: grid, lattice, and genetics available from the R Project website. snp.plotter can be downloaded [CRAN](https://cran.r-project.org/web/packages/snp.plotter/index.html). Packages in the current working directory of R can be installed using the **install.packages** command.
 
 In **Windows,** make sure that you have downloaded the .zip version of a package, which is a pre-compiled binary. Change the word **PACKAGE_FILENAME** to the name of the package being installed.
 
@@ -57,7 +57,7 @@ In **Unix/Linux,** make sure that you have downloaded a source package, the .tar
 install.packages("PACKAGE_FILENAME.tar.gz", repos=NULL)
 ```
 
-The following error indicates that additional packages need to be installed: **PACKAGE_FILENAME** can be grid or genetics. These packages can be downloaded from [CRAN](http://cran.r-project.org/src/contrib/PACKAGES.html). and installed using the same process described above.
+The following error indicates that additional packages need to be installed: **PACKAGE_FILENAME** can be grid or genetics. These packages can be downloaded from [CRAN](https://cran.r-project.org/src/contrib/PACKAGES.html). and installed using the same process described above.
 
 ```
 Error: package 'PACKAGE_FILENAME' could not be loaded
@@ -71,13 +71,13 @@ Once snp.plotter and its dependencies are installed, snp.plotter can be loaded i
 library(snp.plotter)
 ```
 
-snp.plotter is then run using the following command. Explanation of snp.plotter configuration files and input files is provided in the file formats section. The configuration file specifies all the characteristics for the plot to be produced and the names of the data files to be used as input. Example [configuration and input files](https://github.com/downloads/cannin/snp_plotter/snp.plotter.20SNP.dataset.zip) are also provided.
+snp.plotter is then run using the following command. Explanation of snp.plotter configuration files and input files is provided in the file formats section. The configuration file specifies all the characteristics for the plot to be produced and the names of the data files to be used as input. Example [configuration and input files](https://github.com/cannin/snp_plotter/raw/master/snp.plotter.20SNP.dataset.zip) are also provided.
 
 ```{r configRun, eval=FALSE}
 snp.plotter(config.file="config.txt")
 ```
 
-Information about the configuration options is provided in the [documentation on CRAN](http://cran.r-project.org/web/packages/snp.plotter/snp.plotter.pdf), which can viewed from within R using this command.
+Information about the configuration options is provided in the [documentation on CRAN](https://cran.r-project.org/web/packages/snp.plotter/snp.plotter.pdf), which can viewed from within R using this command.
 
 ```{r help, eval=FALSE, tidy=FALSE} 
 ?snp.plotter
@@ -100,7 +100,7 @@ The listing below shows the most common scenarios for inclusion of a figure into
 \end{document}
 ```
 
-* **Conversion of PDF/EPS file into other formats using Ghostscript:** Ghostscript can be used to convert PDF and EPS files into a variety of raster formats such as JPG, BMP, PNG, etc. The following commandline converts an EPS image into a JPG image; the resulting image has a resolution of 300 DPI and pixel dimension of 1050x1050 pixels. Further information on the usage of Ghostscript can be found [here](http://www.cs.wisc.edu/~ghost/doc/AFPL/8.00/Use.htm). **FILENAME** must be changed to the appropriate filename.
+* **Conversion of PDF/EPS file into other formats using Ghostscript:** Ghostscript can be used to convert PDF and EPS files into a variety of raster formats such as JPG, BMP, PNG, etc. The following command-line converts an EPS image into a JPG image; the resulting image has a resolution of 300 DPI and pixel dimension of 1050x1050 pixels. Further information on the usage of Ghostscript can be found [here](http://www.cs.wisc.edu/~ghost/doc/AFPL/8.00/Use.htm). **FILENAME** must be changed to the appropriate filename.
 
 ```
 gs -q -dNOPAUSE -dSAFER -dBATCH -r300 -g1050x1050 -sOutputFile=FILENAME.jpg -sDEVICE=jpeg FILENAME.eps
@@ -154,7 +154,7 @@ ASSOC	SNP.NAME	LOC	SS.PVAL
 -	rs17_8	126299520	0.202
 ```
 
-* **HAP.FILE:** HAP.FILE includes three necessary columns ASSOC, G.PVAL, and I.PVAL corresponding to positive or negative association (indicating protective or susceptibility alleles, a global p-value and an individual p-value for each haplotype followed by a set of columnns of SNPs with corresponding haplotypes. Haplotypes are presented in a step-wise fashion with the major allele given as 1 and the minor allele as 2; haplotype variants for a set of SNPs should be grouped. SNP labels in HAP.FILE must be the same as in SNP.FILE, and only SNPs with corresponding haplotypes need to be included. In the figure, unfilled symbols connected by solid lines are used to indicate global haplotype p-values, (a circle is used if no symbol is specified for the dataset). Unfilled and filled symbols are used to indicate alleles 1 and 2, respectively connected by solid lines and dashed lines for positive and negative association (indicating susceptibility or protective haplotypes) when using indivudal haplotype p-values.
+* **HAP.FILE:** HAP.FILE includes three necessary columns ASSOC, G.PVAL, and I.PVAL corresponding to positive or negative association (indicating protective or susceptibility alleles, a global p-value and an individual p-value for each haplotype followed by a set of columnns of SNPs with corresponding haplotypes. Haplotypes are presented in a step-wise fashion with the major allele given as 1 and the minor allele as 2; haplotype variants for a set of SNPs should be grouped. SNP labels in HAP.FILE must be the same as in SNP.FILE, and only SNPs with corresponding haplotypes need to be included. In the figure, unfilled symbols connected by solid lines are used to indicate global haplotype p-values, (a circle is used if no symbol is specified for the dataset). Unfilled and filled symbols are used to indicate alleles 1 and 2, respectively connected by solid lines and dashed lines for positive and negative association (indicating susceptibility or protective haplotypes) when using individual haplotype p-values.
  
 ```
 ASSOC	G.PVAL	I.PVAL	rs10_8	rs11_8	rs12_8	rs13_8	rs14_8	rs15_8	rs16_8	rs17_8
@@ -198,21 +198,21 @@ CCCCFF
 
 # Download
 ## Where can I get the the source code of snp.plotter for my own project? 
-* [Download from CRAN](http://cran.r-project.org/web/packages/snp.plotter/index.html)
+* [Download from CRAN](https://cran.r-project.org/web/packages/snp.plotter/index.html)
 * Download example configuration and input files: [20 SNP](https://github.com/cannin/snp_plotter/raw/master/snp.plotter.20SNP.dataset.zip) dataset
 * [Learn about the R project for statistical computing](http://www.r-project.org/) 
-* [Read the documentation](http://cran.r-project.org/web/packages/snp.plotter/snp.plotter.pdf)
-* [View release notes](http://cran.r-project.org/web/packages/snp.plotter/ChangeLog) 
+* [Read the documentation](https://cran.r-project.org/web/packages/snp.plotter/snp.plotter.pdf)
+* [View release notes](https://cran.r-project.org/web/packages/snp.plotter/ChangeLog) 
 
 # Author and Citation Information 
 ## Authors 
 * Augustin Luna, PhD
 * Kristin Nicodemus, PhD, MPH
 
-## Acknowledgements  
+## Acknowledgments  
 Anushka Aqil for her feedback 
 
 ## Citation 
 Please cite the following publication, if you include figures generated with snp.plotter
 
-Luna A, Nicodemus KK. [snp.plotter: an R-based SNP/haplotype association and linkage disequilibrium plotting package.](http://www.ncbi.nlm.nih.gov/pubmed/17234637) Bioinformatics. 2007 Mar 15;23(6):774-6.
+Luna A, Nicodemus KK. [snp.plotter: an R-based SNP/haplotype association and linkage disequilibrium plotting package.](https://www.ncbi.nlm.nih.gov/pubmed/17234637) Bioinformatics. 2007 Mar 15;23(6):774-6.

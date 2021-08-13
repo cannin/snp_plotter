@@ -10,7 +10,7 @@ citEntry(entry="Article",
          year	= 2007,
          pages	="774-776",
 		 month  ="Mar",
-         url	="http://cbdb.nimh.nih.gov/~kristin/snp.plotter.html",
+         url	="https://github.com/cannin/snp_plotter",
 
          textVersion =
        paste("Luna A, Nicodemus KK (2007).",
